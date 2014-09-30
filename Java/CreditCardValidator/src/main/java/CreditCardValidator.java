@@ -3,7 +3,7 @@
  */
 public class CreditCardValidator {
     public static void main(String [] args){
-        String ccNumber = "5148-6250-9443-9581";
+        String ccNumber = "5116-8867-9176-4824";
         System.out.println(String.format("Credit card number %s is valid? %b", ccNumber, creditCardValidator(ccNumber.replaceAll("-",""))));
     }
 

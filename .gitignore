@@ -1,11 +1,14 @@
 *.py[cod]
-.idea/
+**/.idea/
 # C extensions
 *.so
 
 # Packages
 *.egg
 *.egg-info
+**.iws
+**.iml
+**.class
 dist
 build
 eggs

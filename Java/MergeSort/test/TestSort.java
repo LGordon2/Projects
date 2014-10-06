@@ -1,3 +1,4 @@
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -6,7 +7,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.logging.Logger;
 
-import static com.lewgordon.MergeSort.mergeSort;
+import static com.lewgordon.Sort.bubbleSort;
+import static com.lewgordon.Sort.mergeSort;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -21,14 +23,23 @@ public class TestSort {
     public void setupData(){
         Random rand = new Random();
         list = listFactory(rand.nextInt(100));
+        log.info("List: " + prettyPrint(list));
     }
 
     @Test
     public void testMergeSort(){
-        log.info("List: " + prettyPrint(list));
         list = mergeSort(list);
+    }
+
+    @Test
+    public void testBubbleSort(){
+        list = bubbleSort(list);
+    }
+
+    @After
+    public void verifyListIsSorted(){
         log.info("Sorted List: " + prettyPrint(list));
-        assertTrue(verifySorted(list));
+        assertTrue("List is not sorted.", verifySorted(list));
     }
 
     private static <E> String prettyPrint(List<E> list) {

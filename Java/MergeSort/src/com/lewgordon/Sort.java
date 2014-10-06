@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by lew on 10/3/14.
  */
-public class MergeSort {
+public class Sort {
     public static <T extends Comparable<? super T>> List<T> mergeSort(List<T> list){
         if(list.size() <= 1){
             return list;
@@ -33,5 +33,25 @@ public class MergeSort {
             newList.add(list2.get(j++));
 
         return newList;
+    }
+
+    public static <T extends Comparable<? super T>> List<T> bubbleSort(List<T> list){
+        if(list.size() <= 1){
+            return list;
+        }
+
+        T temp = null;
+
+        for(int i=1;i<list.size()-1;i++){
+            for(int j=0;j<list.size()-i;j++){
+                if(list.get(j).compareTo(list.get(j+1)) > 0){
+                    //Swap
+                    temp = list.get(j);
+                    list.set(j, list.get(j+1));
+                    list.set(j+1, temp);
+                }
+            }
+        }
+        return list;
     }
 }
